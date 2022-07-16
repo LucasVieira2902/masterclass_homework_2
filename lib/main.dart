@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masterclass_homework_2/pages/controlled_animations/activity_1.dart' as activity1_controlled;
 import 'package:masterclass_homework_2/pages/implicit_animations/activity_1.dart';
 import 'package:masterclass_homework_2/pages/implicit_animations/activity_2.dart';
 
@@ -83,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Activity1(),
+                      builder: (context) => const activity1_controlled.Activity1(),
                     ),
                   );
                 },
