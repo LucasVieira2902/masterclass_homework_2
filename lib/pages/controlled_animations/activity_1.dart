@@ -24,9 +24,6 @@ class _Activity1State extends State<Activity1> with SingleTickerProviderStateMix
       vsync: this, 
       duration: const Duration(milliseconds: 600),
     );
-    animationController.addListener(() {
-      setState(() {});
-    });
 
   }
 
@@ -58,33 +55,36 @@ class _Activity1State extends State<Activity1> with SingleTickerProviderStateMix
       end: 0,
       ).animate(CurvedAnimation(parent: animationController, curve: const Interval(0.0, 0.5, curve: Curves.easeInOut)));
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Desafio do Botão Flutuante'),
-      ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            bottom: animationPositionY!.value,
-            right: animationPositionX!.value,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isActive = !isActive;
-                  isActive ? animationController.forward() : animationController.reverse();
-                });
-              },
-              child: Container(
-                width: animationSize!.value,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(animationRounded!.value),
+    return AnimatedBuilder(
+      animation: animationController,
+      builder: (context, child) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Desafio do Botão Flutuante'),
+        ),
+        body: Stack(
+          children: <Widget>[
+            Positioned(
+              bottom: animationPositionY!.value,
+              right: animationPositionX!.value,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    isActive = !isActive;
+                    isActive ? animationController.forward() : animationController.reverse();
+                  });
+                },
+                child: Container(
+                  width: animationSize!.value,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(animationRounded!.value),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
