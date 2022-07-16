@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomTile extends StatefulWidget {
+class CustomTileImplicit extends StatefulWidget {
   final int index;
-  const CustomTile({Key? key, required this.index}) : super(key: key);
+  const CustomTileImplicit({Key? key, required this.index}) : super(key: key);
 
   @override
-  State<CustomTile> createState() => _CustomTileState();
+  State<CustomTileImplicit> createState() => _CustomTileImplicitState();
 }
 
-class _CustomTileState extends State<CustomTile> {
+class _CustomTileImplicitState extends State<CustomTileImplicit>{
   bool isActive = false;
+
   @override
   Widget build(BuildContext context) {
     return Material(

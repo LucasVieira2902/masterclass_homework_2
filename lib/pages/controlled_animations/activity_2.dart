@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masterclass_homework_2/components/custom_tile_implicit.dart';
+import 'package:masterclass_homework_2/components/custom_tile_controlled.dart';
 
 class Activity2 extends StatelessWidget {
   const Activity2({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class Activity2 extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: 60,
-        itemBuilder: (context, index) => CustomTileImplicit(index: index),
+        itemBuilder: (context, index) => CustomTileControlled(index: index),
       )
     );
   }
